@@ -1,15 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{{ task.title }}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
- <h3 class="task_title">{{ task.title }}</h3>
-    <p class="task_description">{{ task.description }}</p>
-    <p class="task_description"><b>STATUS :</b> {{ task.status }}</p>
-    <p class="task_description"><b>Deadline :</b> {{ task.deadline }}</p>
-    <a href="{% url 'delete' task.pk %}">Delete</a>
-    <a href="{% url 'update' task.pk %}">Update</a>
+<h3 class="task_title">{{ task.title }}</h3>
+<p class="task_description">{{ task.description }}</p>
+<p class="task_description"><b>STATUS :</b> {{ task.status }}</p>
+<p class="task_description"><b>Deadline :</b> {{ task.deadline }}</p>
+<a href="{% url 'delete' task.pk %}">Delete</a>
+<a href="{% url 'update' task.pk %}">Update</a>
 </body>
 </html>

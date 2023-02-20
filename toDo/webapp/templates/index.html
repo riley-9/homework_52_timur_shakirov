@@ -1,22 +1,23 @@
-<!DOCTYPE html>
+{% load static %}
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ToDo</title>
+    <title>To Do</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
-<body>
 <h1>Tasks</h1>
 
 {% if task_list %}
-    {% for task in task_list %}
-        <h3 class="task_title">{{ task.title }}</h3>
-        <p class="task_description"><b>STATUS :</b> {{ task.status }}</p>
-        <a href="{% url 'detail' task.pk %}">View more...</a>
-    {% endfor %}
+{% for task in task_list %}
+<h3 class="task_title">{{ task.title }}</h3>
+<p class="task_description"><b>STATUS :</b> {{ task.status }}</p>
+<a href="{% url 'detail' task.pk %}">View more...</a>
+{% endfor %}
 {% else %}
-    <h2>No tasks yet...</h2>
+<h2>No tasks yet...</h2>
 {% endif %}
 
-<a href="/task/create/">add new task</a>
+<a href="/task/create/">Add new task</a>
 </body>
 </html>
